@@ -1,21 +1,36 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { View, StyleSheet, Dimensions } from "react-native";
+import LoaderArrow from "./components/LoaderArrow";
+import SubwayLine from "./components/SubwayLine";
+
+const screen = Dimensions.get("screen");
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={styles.appContainer}>
+      {/* <View style={[styles.loaderArrow, { transform: [{ rotate: "180deg" }] }]}>
+        <LoaderArrow />
+      </View> */}
+      <SubwayLine />
+      {/* <View style={styles.loaderArrow}>
+        <LoaderArrow />
+      </View> */}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  appContainer: {
+    height: screen.height,
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    flexDirection: "row",
+  },
+  loaderArrow: {
+    width: (screen.width - screen.width / 1.41) / 2,
+    flex: 0,
+    backgroundColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
